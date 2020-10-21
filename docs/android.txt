@@ -1,0 +1,34 @@
+* Análise sintática:
+./gradlew lint
+
+* Testes unitários:
+./gradlew test
+
+* Testes UI
+./gradlew connectedAndroidTest
+
+* Builds
+
+./gradlew assembleDebug
+./gradlew assembleRelease
+
+* Criar um keystore
+
+https://developer.android.com/studio/publish/app-signing
+
+keytool -genkey -v -keystore hello.keystore -alias hello -keyalg RSA -keysize 2048 -validity 10000
+
+* Firebase Distribution
+https://firebase.google.com/docs/app-distribution/android/distribute-gradle
+
+* Publicar na Loja
+./gradlew publishReleaseApk
+
+* Plugin Gradle Publisher
+https://github.com/Triple-T/gradle-play-publisher
+
+./gradlew publishReleaseApk
+
+./gradlew promoteArtifact --promote-track alpha --release-status completed
+
+./gradlew promoteArtifact --from-track alpha --promote-track beta --release-status completed

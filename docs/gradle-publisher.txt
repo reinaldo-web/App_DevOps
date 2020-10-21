@@ -1,0 +1,19 @@
+https://github.com/Triple-T/gradle-play-publisher
+
+* build.gradle
+
+classpath 'com.github.triplet.gradle:play-publisher:2.8.0'
+
+* app/build.gradle
+
+apply plugin: 'com.github.triplet.play'
+
+play {
+    serviceAccountCredentials = file("service-account-key.json")
+}
+
+./gradlew publishReleaseApk
+
+./gradlew promoteArtifact --promote-track alpha --release-status completed
+
+./gradlew promoteArtifact --from-track alpha --promote-track beta --release-status completed

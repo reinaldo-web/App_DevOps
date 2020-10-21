@@ -1,0 +1,50 @@
+android {
+    compileSdkVersion 29
+
+    // -- AUTO INCREMENT VERSION --
+    def versionPropsFile = rootProject.file('app/version.properties')
+    def versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionPropsFile))
+    def code = versionProps['VERSION_CODE'].toInteger() + 1
+    def name = versionProps['VERSION_NAME']
+
+    defaultConfig {
+        applicationId "com.testeup.hello1"
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        versionCode code
+        versionName name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    incrementVersionCode()
+
+    signingConfigs {
+        release {
+            //
+        }
+    }
+
+    buildTypes {
+        release {
+            //
+        }
+    }
+}
+
+// -- AUTO INCREMENT VERSION --
+def incrementVersionCode() {
+    gradle.taskGraph.whenReady { taskGraph ->
+        if (taskGraph.hasTask(assembleRelease)) {
+            def versionPropsFile = rootProject.file('app/version.properties')
+            def versionProps = new Properties()
+            versionProps.load(new FileInputStream(versionPropsFile))
+
+            def code = versionProps['VERSION_CODE'].toInteger() + 1
+            versionProps['VERSION_CODE'] = code.toString()
+            versionProps.store(versionPropsFile.newWriter(), null)
+        }
+    }
+}

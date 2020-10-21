@@ -1,0 +1,3 @@
+aapt dump badging app/build/outputs/apk/release/app-release.apk > apk.txt
+
+aapt dump badging app/build/outputs/apk/debug/app-debug.apk > apk.txt

@@ -1,0 +1,7 @@
+- git add app/version.properties
+- git commit -m "Update version [skip ci]"
+- git push
+
+sudo yum install git
+git config --global user.email 'rlecheta@livetouch.com.br'
+git config --global user.name 'rlechetalive'

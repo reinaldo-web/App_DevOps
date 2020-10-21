@@ -1,0 +1,5 @@
+https://developer.android.com/studio/publish/app-signing
+
+* Keystore
+
+keytool -genkey -v -keystore hello1.keystore -alias hello1 -keyalg RSA -keysize 2048 -validity 10000

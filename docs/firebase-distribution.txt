@@ -1,0 +1,12 @@
+https://firebase.google.com/docs/app-distribution/android/distribute-gradle
+
+firebaseAppDistribution {
+    appId="1:107612794830:android:2877ed17c74d0f881c059f"
+    releaseNotesFile="app/firebasedist-releasenotes.txt"
+    groups="users"
+    serviceCredentialsFile="app/firebase-service-account-key.json"
+}
+
+./gradlew assembleRelease appDistributionUploadRelease
+
+./gradlew assembleDebug appDistributionUploadDebug
